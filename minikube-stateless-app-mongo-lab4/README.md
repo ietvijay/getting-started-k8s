@@ -1,3 +1,6 @@
+Pre-requisite 
+ > minikube.exe start
+
 1. Run the Mongo db
     > kubectl apply -f ./mongo-deployment.yml
     > kubectl logs -f deployment/mongo
