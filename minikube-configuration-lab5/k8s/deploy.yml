@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: console-deploy
+  labels:
+    app: ConsoleApp1
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: ConsoleApp1
+  template:
+    metadata:
+      labels:
+        app: ConsoleApp1
+    spec: 
+      terminationGracePeriodSeconds: 1
+      containers:
+      - name: console-pod
+        image: ietvijay/console-app:v2
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080

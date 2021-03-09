@@ -1,0 +1,17 @@
+Objective: When Kubernetes starts a container, it provides environment variables pointing to all the Services which were running when the container was started.
+
+1. Upload a app to read env variables
+    > docker build -t console-app:v2 .\app\
+    > docker images
+    > docker tag e27551698a4b ietvijay/console-app:v2
+    > docker push ietvijay/console-app:v2
+2. create a foo service 
+    > kubectl apply -f ./foo-svc.yml
+3. create pods using deploy
+    > kubectl apply -f ./deploy.yml
+4. check the pods logs to see the 
+    > kubectl.exe logs console-deploy-65f675dc56-rgv6v
+    
+output:
+ Service Host for Foo: 10.97.196.182
+ Service Port for Foo: 80
